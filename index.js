@@ -106,6 +106,10 @@ const User  = mongoose.model('User', userSchema)
 const Brand = mongoose.model('Brand',brandSchema)
 const Special = mongoose.model('Ramosdev-brands',dataSchema)
 
+
+app.get('/', (request, response) => {
+  response.send('<h1>Routes</h1><p>.../user</p><p>.../product</p><p>.../price/{:id}/{:product_name}</p>')
+})
 //Mostrar los brands en la API brands
 app.get('/brands', (request, response) => {
     Brand.find({}).select('-__v').then(brands => {
